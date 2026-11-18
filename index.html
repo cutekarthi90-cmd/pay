@@ -313,19 +313,11 @@
       </div>
     </div>
 
-    <!-- QR Code Section -->
-    <div class="qr-section">
-      <button class="qr-toggle-btn" onclick="toggleQR()">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-        <span id="qrToggleText">QR Code மூலம் ஸ்கேன் செய்ய (Show QR)</span>
-      </button>
-
-      <div class="qr-wrapper" id="qrWrapper" style="display: none;">
-        <div id="qrcode"></div>
-        <div class="upi-id-box">
-          <div>UPI ID: <span class="upi-id-text" id="displayVpa">9715722499@okbizaxis</span></div>
-          <button class="copy-btn" onclick="copyUpi()">Copy</button>
-        </div>
+    <!-- UPI ID Copy Section -->
+    <div style="padding: 0 20px 16px;">
+      <div class="upi-id-box" style="margin-top: 0;">
+        <div>UPI ID: <span class="upi-id-text" id="displayVpa">9715722499@okbizaxis</span></div>
+        <button class="copy-btn" onclick="copyUpi()">Copy</button>
       </div>
     </div>
 
@@ -382,29 +374,6 @@
     document.getElementById('btnPhonePe').href = phonepeUri;
     document.getElementById('btnPaytm').href = paytmUri;
     document.getElementById('btnOther').href = standardUpi;
-
-    // 5. Generate Dynamic QR Code
-    new QRCode(document.getElementById("qrcode"), {
-      text: standardUpi,
-      width: 180,
-      height: 180,
-      colorDark : "#0f172a",
-      colorLight : "#ffffff",
-      correctLevel : QRCode.CorrectLevel.M
-    });
-
-    // 6. UI Helpers
-    function toggleQR() {
-      const w = document.getElementById('qrWrapper');
-      const t = document.getElementById('qrToggleText');
-      if (w.style.display === 'none') {
-        w.style.display = 'flex';
-        t.innerText = 'QR Code-ஐ மறைக்க (Hide QR)';
-      } else {
-        w.style.display = 'none';
-        t.innerText = 'QR Code மூலம் ஸ்கேன் செய்ய (Show QR)';
-      }
-    }
 
     function copyUpi() {
       navigator.clipboard.writeText(vpa).then(() => {
