@@ -259,7 +259,6 @@
       <div class="amount-label">செலுத்த வேண்டிய தொகை (Amount)</div>
       <div class="amount-value" id="displayAmount">₹0.00</div>
       <div class="bill-meta" id="displayBill">🧾 Bill: #---</div>
-      <div class="party-name" id="displayParty" style="display: none;"></div>
     </div>
 
     <!-- 1-Click Pay Buttons -->
@@ -355,11 +354,6 @@
       document.getElementById('displayBill').innerText = '🧾 Payment';
     }
 
-    if (partyName) {
-      const pEl = document.getElementById('displayParty');
-      pEl.innerText = '🏢 ' + partyName;
-      pEl.style.display = 'block';
-    }
     document.getElementById('displayVpa').innerText = vpa;
 
     // 3. Construct Standard and App-Specific UPI URIs
